@@ -27,9 +27,11 @@ AutoCSV is a Python tool that simplifies the first step in data analysis:
 
 ---
 
+## 😎 Everyone is welcome to collab with me
+
+- Just ask!
+
 ## ⚡️ Quickstart
 
 ```bash
-pip install autocsv
-
-autocsv data/example.csv
+nothing to start with
