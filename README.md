@@ -4,7 +4,7 @@ Easy to use automatic app for displaying CSV files.
 <p align="center">
   <img src="https://img.shields.io/badge/build-passing-brightgreen?style=flat-square">
   <img src="https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square">
-  <img src="https://img.shields.io/github/license/yourusername/autocsv?style=flat-square">
+  <img src="https://img.shields.io/github/license/d0b3-xyz/autocsv?style=flat-square">
 </p>
 
 <h1 align="center">📊 AutoCSV</h1>
