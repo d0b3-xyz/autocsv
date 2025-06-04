@@ -1,37 +1,132 @@
-# autocsv
-Easy to use automatic app for displaying CSV files.
+# AutoCSV - CSV Visualization and Connection Analysis Tool
 
-<p align="center">
-  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=flat-square">
-  <img src="https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square">
-  <img src="https://img.shields.io/github/license/d0b3-xyz/autocsv?style=flat-square">
-</p>
+A Python tool for analyzing CSV files, finding connections between data columns, and creating visualizations.
 
-<h1 align="center">📊 AutoCSV</h1>
-<p align="center">
-  <b>Plug-and-play CSV analysis for Data Scientists & curious minds</b><br/>
-  Just upload a file – AutoCSV does the rest.
-</p>
+## Features
 
----
+- **CSV Loading**: Supports multiple encodings and handles various CSV formats
+- **Data Analysis**: 
+  - Basic statistical summaries
+  - Correlation analysis between numeric columns
+  - Categorical variable influence on numeric variables
+  - Outlier detection
+- **Visualizations**:
+  - Distribution plots for numeric data
+  - Bar charts for categorical data
+  - Correlation heatmaps
+  - Pairwise relationship plots
+  - Connection network graphs
+- **Multiple Output Formats**: PNG images and interactive HTML plots
+- **Connection Analysis**: Automatically finds and visualizes relationships in your data
 
-## 🚀 TL;DR – What is AutoCSV?
+## Installation
 
-AutoCSV is a Python tool that simplifies the first step in data analysis:
+1. Clone this repository:
+```bash
+git clone https://github.com/d0b3-xyz/autocsv.git
+cd autocsv
+```
 
-- 🔍 **Scans your CSV** for structure, data types, anomalies  
-- 📈 **Generates visual insights** (histograms, heatmaps, outliers)  
-- 🧠 **Detects patterns** like correlations, missing data, column types  
-- 📦 **Exports reports** as HTML, PNG or interactive notebooks  
-- 🧰 Perfect for Data Scientists, analysts & developers
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
----
+## Usage
 
-## 😎 Everyone is welcome to collab with me
+### Basic Usage
 
-- Just ask!
+Analyze a CSV file:
+```bash
+python main.py your_data.csv
+```
 
-## ⚡️ Quickstart
+### Advanced Options
 
 ```bash
-nothing to start with
+# Find connections and generate visualizations
+python main.py data.csv --connections --visualize
+
+# Specify output directory
+python main.py data.csv --output results/
+
+# Choose output format
+python main.py data.csv --visualize --format html
+```
+
+### Command Line Options
+
+- `file`: Path to your CSV file (required)
+- `--output, -o`: Output directory for visualizations (default: 'output')
+- `--connections, -c`: Find connections in the data
+- `--visualize, -v`: Generate visualizations
+- `--format`: Output format - 'png', 'html', or 'both' (default: 'both')
+
+## Examples
+
+### Analyzing Sales Data
+```bash
+python main.py sales_data.csv --connections --visualize
+```
+
+This will:
+1. Load the sales data
+2. Analyze correlations between numeric columns
+3. Find categorical influences on numeric data
+4. Generate distribution plots, correlation heatmaps, and connection networks
+5. Save results to the 'output' directory
+
+### Output Files
+
+The tool generates several types of visualizations:
+
+- `distributions.png/html`: Histograms of numeric columns
+- `categorical.png`: Bar charts of categorical data
+- `correlation_heatmap.png/html`: Correlation matrix visualization
+- `pairplot.png`: Pairwise relationships (for datasets with 2-6 numeric columns)
+- `connection_network.png`: Network graph showing variable relationships
+- `connection_details.png`: Detailed plots of strongest connections
+
+## Connection Types
+
+The tool identifies two main types of connections:
+
+1. **Correlations**: Statistical relationships between numeric variables
+   - Pearson correlation coefficient
+   - Threshold: |r| > 0.3 for significance
+
+2. **Categorical Influence**: How categorical variables affect numeric variables
+   - Based on variance differences across categories
+   - Useful for identifying grouping effects
+
+## Requirements
+
+- Python 3.7+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- plotly
+- scipy
+- networkx
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is open source. Please check the license file for details.
+
+## Future Enhancements
+
+- [ ] Support for more file formats (Excel, JSON, etc.)
+- [ ] Advanced statistical tests for connections
+- [ ] Machine learning-based pattern detection
+- [ ] Interactive web interface
+- [ ] Real-time data streaming support
+- [ ] Custom connection rule definitions
